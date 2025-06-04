@@ -2,12 +2,18 @@
 .about-page {
   display: flex;
   flex-wrap: wrap;
+
   justify-content: space-between;
   gap: 2rem;
   padding: 3rem 2rem 0;
   background: #f4f4f2;
   color: #111;
   line-height: 1.5;
+}
+
+.about-logo {
+  font-size: 2.5rem;
+  text-align: center;
 }
 
 .about-card,
@@ -94,8 +100,9 @@
   box-shadow: 0 0 6px #39ff1460;
   transition: transform 0.2s ease;
 }
-.delimiter{
-  border:2px solid black;
+
+.delimiter {
+  border: 2px solid black;
 }
 
 /* Optional hover glow effect */
@@ -123,6 +130,8 @@
 
   .about-logo {
     font-size: 2rem;
+    font-family: 'CloisterBlack', serif;
+
     text-align: center;
   }
 

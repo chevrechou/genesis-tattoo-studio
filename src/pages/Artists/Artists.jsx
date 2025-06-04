@@ -153,7 +153,7 @@ export default function Artists() {
         <div className="artists-page" id="artists">
             {/* Page title */}
             <h1 className="artists-title">Meet Our Artists</h1>
-
+            <p className='artist-cta'>Click the artist card to view their portfolio and DM directly for scheduling and quotes.</p>
             <div className="artist-grid">
                 {fakeArtists.map(artist => (
                     <div key={artist.id} className="artist-card" onClick={() => setSelectedArtist(artist)}>
