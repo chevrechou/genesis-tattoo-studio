@@ -2,11 +2,20 @@ import React from 'react';
 import './About.css';
 
 export default function About() {
+
+    const scrollToAbout = () => {
+        const aboutSection = document.getElementById('artists');
+        if (aboutSection) {
+            aboutSection.scrollIntoView({ behavior: 'smooth' });
+        }
+        // navigate('/about');
+    }
+
     return (
         <>
             <div className="about-page" id="about">
                 <div className="about-card">
-                    <h1 className="about-logo">About Genesis Tattoo Studio➕</h1>
+                    <h1 className="about-logo">About Genesis Tattoo Studio</h1>
 
                     <section className="about-section">
                         <h3>Our Philosophy</h3>
@@ -25,7 +34,7 @@ export default function About() {
                             <li>We tag every artist on our posts so you know who to book</li>
                         </ul>
 
-                        
+
                     </section>
 
                     <section className="about-section">
@@ -63,8 +72,8 @@ export default function About() {
                 </div>
             </div>
 
-            <div className="chevron-center-wrapper">
-                <a href="/artists" className="chevron-hover-link">
+            <div className="chevron-center-wrapper" onClick={scrollToAbout}>
+                <a  className="chevron-hover-link">
                     <span className="chevron-label">Meet Our Artists</span>
                     <span className="chevron-svg"></span>
                 </a>

@@ -2,6 +2,7 @@ import React, { useEffect, useRef } from 'react';
 import './Home.css';
 import { useNavigate } from 'react-router-dom';
 import About from '../About/About';
+import Artists from '../Artists/Artists';
 
 export default function Home() {
   const columnsRef = useRef(null);
@@ -49,7 +50,7 @@ export default function Home() {
           ))}
         </div>
         <div className="center-text">
-          <h1 className="studio-name">GENESIS</h1>
+          <h1 className="studio-name">Genesis</h1>
           <h2 className="tagline">TATTOO STUDIO</h2>
         </div>
         <div className="scroll-arrow" onClick={scrollToAbout}>
@@ -59,6 +60,7 @@ export default function Home() {
         </div>
       </div>
       <About />
+      <Artists/>
     </>
   );
 }

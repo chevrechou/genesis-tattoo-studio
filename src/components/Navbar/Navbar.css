@@ -11,11 +11,11 @@
 }
 
 .nav-logo a {
-  font-family: 'MountainKing', cursive;
-  font-size: 2rem;
+  font-family: 'AmazDooMLeft', cursive;
+  font-size: 3rem;
   color: #39FF14;
   text-decoration: none;
-  /* -webkit-text-stroke: 1px red; */
+  -webkit-text-stroke: 1px red;
 }
 
 .nav-links {
