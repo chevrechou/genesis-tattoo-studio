@@ -1,9 +1,10 @@
 import React from 'react';
 import './About.css';
+import { FaPlus, FaChevronDown } from 'react-icons/fa';
 
 export default function About() {
 
-    const scrollToAbout = () => {
+    const scrollToArtists = () => {
         const aboutSection = document.getElementById('artists');
         if (aboutSection) {
             const yOffset = -80; // adjust to match navbar height
@@ -74,12 +75,14 @@ export default function About() {
                 </div>
             </div>
 
-            <div className="chevron-center-wrapper" onClick={scrollToAbout}>
-                <a className="chevron-hover-link">
-                    <span className="chevron-label">Meet Our Artists</span>
-                    <span className="chevron-svg"></span>
-                </a>
+            <div className="chevron-center-wrapper" onClick={scrollToArtists}>
+                <button className="chevron-button">
+
+                    <FaChevronDown className="chevron-icon" />
+                </button>
             </div>
+            <div className='delimiter'></div>
+
         </>
     );
 }

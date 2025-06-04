@@ -1,15 +1,15 @@
+/* ──────── Layout ──────── */
 .about-page {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
-  padding: 3rem 2rem 0rem 2rem;
+  gap: 2rem;
+  padding: 3rem 2rem 0;
   background: #f4f4f2;
   color: #111;
-  gap: 2rem;
-  line-height: 1.3;
+  line-height: 1.5;
 }
 
-/* Make cards full-width on mobile */
 .about-card,
 .map-card {
   flex: 1;
@@ -22,74 +22,58 @@
   height: 350px;
   border: none;
   border-radius: 10px;
-  box-shadow: 0 0 10px #999;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.15);
 }
 
+/* ──────── Meet Our Artists Button ──────── */
 .chevron-center-wrapper {
-  width: 100%;
-  background-color: #f4f4f2;
-  padding: 2rem 0;
   display: flex;
   justify-content: center;
+  padding: 3rem 0;
+  background: #f4f4f2;
 }
 
-.chevron-hover-link {
-  display: flex;
-  flex-direction: column;
+.chevron-button {
+  display: inline-flex;
   align-items: center;
-  text-decoration: none;
-  position: relative;
-}
-
-.chevron-svg {
-  width: 24px;
-  height: 24px;
-  border-bottom: 4px solid #FF0000;
-  border-right: 4px solid #FF0000;
-  transform: rotate(45deg);
-  transition: transform 0.3s ease;
-}
-
-.chevron-label {
-  margin-top: 1rem;
-  background-color: #FF0000;
-  color: white;
-  font-weight: bold;
-  font-size: 1rem;
-  padding: 0.5rem 1.5rem;
-  border-radius: 12px;
-  opacity: 0;
-  transform: translateY(-5px);
-  pointer-events: none;
+  background: transparent;
+  border: 2px solid #39FF14;
+  color: #39FF14;
+  font-weight: 600;
+  font-size: 1.2rem;
+  padding: 0.6rem 1.4rem;
+  border-radius: 999px;
+  cursor: pointer;
   transition: all 0.3s ease;
 }
 
-/* Reveal label only when hovering the chevron */
-.chevron-hover-link:hover .chevron-label {
-  opacity: 1;
-  transform: translateY(-2px);
-  pointer-events: auto;
+.chevron-button:hover {
+  background: #e1f9dd;
+  color: #000;
 }
 
-.chevron-hover-link:hover .chevron-svg {
-  transform: rotate(45deg) translateY(2px);
+.chevron-icon {
+  transition: transform 0.3s ease;
 }
 
+.chevron-button:hover .chevron-icon {
+  transform: translateY(3px);
+}
+
+/* ──────── Specialty Highlight Section ──────── */
 .style-highlight {
-  margin-top: 3.5rem;
-  padding: 5px 15px 15px;
-  /* background: #111; */
-  color: #fff;
+  margin-top: 3rem;
+  padding: 1rem 1.5rem;
   border-left: 4px solid #39FF14;
-  border-radius: 12px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+  background: #fff;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.08);
 }
 
 .style-highlight h3 {
+  font-size: 1.4rem;
   margin-bottom: 0.75rem;
-  font-size: 25px ;
-  color: black;
-  /* font-family: 'Fruktur', cursive; */
+  color: #000;
 }
 
 .style-tags {
@@ -99,27 +83,31 @@
 }
 
 .style-tags span {
-  background: #daf5d5eb ; 
-  color: #000;
+  background: #daf5d5;
   border: 1px solid #39FF14;
+  color: #000;
   font-weight: bold;
+  font-size: 0.9rem;
   padding: 0.4rem 1rem;
   border-radius: 20px;
-  font-size: 0.95rem;
   text-transform: uppercase;
-  box-shadow: 0 0 5px #39FF1470;
+  box-shadow: 0 0 6px #39ff1460;
   transition: transform 0.2s ease;
 }
-/* 
+.delimiter{
+  border:2px solid black;
+}
+
+/* Optional hover glow effect */
+/*
 .style-tags span:hover {
   transform: scale(1.05);
-  background-color: #FF0000;
+  background: #111;
   color: #fff;
-} */
+}
+*/
 
-/* ======================== */
-/* ✅ MOBILE FIXES BELOW */
-/* ======================== */
+/* ──────── Mobile Styles ──────── */
 @media (max-width: 768px) {
   .about-page {
     flex-direction: column;
@@ -147,13 +135,13 @@
     font-size: 0.95rem;
   }
 
-  .chevron-cta {
-    font-size: 0.95rem;
-    padding: 0.6rem 1.5rem;
+  .chevron-button {
+    font-size: 1rem;
+    padding: 0.5rem 1.2rem;
   }
 
   .chevron-icon {
-    width: 20px;
-    height: 20px;
+    width: 18px;
+    height: 18px;
   }
 }

@@ -3,6 +3,7 @@ import './Home.css';
 import About from '../About/About';
 import Artists from '../Artists/Artists';
 import FAQ from '../FAQ/FAQ';
+import CallPage from '../CallPage/CallPage';
 
 export default function Home() {
   const columnsRef = useRef(null);
@@ -63,6 +64,7 @@ export default function Home() {
       <About />
       <Artists />
       <FAQ/>
+      <CallPage/>
     </>
   );
 }

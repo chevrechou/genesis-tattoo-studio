@@ -72,8 +72,16 @@ export default function FAQ() {
         setOpenIndex(openIndex === index ? null : index);
     };
 
+    const scrollToCall = () => {
+        const aboutSection = document.getElementById('call');
+        if (aboutSection) {
+            const yOffset = -80; // adjust for sticky navbar height
+            const y = aboutSection.getBoundingClientRect().top + window.pageYOffset + yOffset;
+            window.scrollTo({ top: y, behavior: 'smooth' });
+        }
+    };
     return (
-        <div className="faq-page">
+        <div className="faq-page" id='faq'>
             <h1 className="faq-title">Frequently Asked Questions</h1>
             <div className="faq-list">
                 {faqs.map((faq, index) => (
@@ -91,6 +99,12 @@ export default function FAQ() {
                         </div>
                     </div>
                 ))}
+            </div>
+
+            <div className="chevron-center-wrapper-faq" onClick={scrollToCall}>
+                <button className="chevron-button">
+                    <FaChevronDown className="chevron-icon" />
+                </button>
             </div>
         </div>
     );

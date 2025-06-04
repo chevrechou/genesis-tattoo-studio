@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import './Artists.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faInstagram } from '@fortawesome/free-brands-svg-icons';
+import { FaPlus, FaChevronDown } from 'react-icons/fa';
 
 const fakeArtists = [
     {
@@ -140,7 +141,14 @@ const fakeArtists = [
 
 export default function Artists() {
     const [selectedArtist, setSelectedArtist] = useState(null);
-
+    const scrollToFAQ = () => {
+        const aboutSection = document.getElementById('faq');
+        if (aboutSection) {
+            const yOffset = -80; // adjust for sticky navbar height
+            const y = aboutSection.getBoundingClientRect().top + window.pageYOffset + yOffset;
+            window.scrollTo({ top: y, behavior: 'smooth' });
+        }
+    };
     return (
         <div className="artists-page" id="artists">
             {/* Page title */}
@@ -206,6 +214,10 @@ export default function Artists() {
                     </div>
                 </div>
             )}
-        </div>
+
+            <button className="scroll-artists-button" onClick={scrollToFAQ}>
+                <FaChevronDown />
+            </button>
+        </div >
     );
 }

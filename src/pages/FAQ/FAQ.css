@@ -70,6 +70,25 @@
     color: #333;
 }
 
+.chevron-center-wrapper-faq {
+    margin: 2rem auto 0rem;
+    display: flex;
+    justify-content: center;
+}
+
+@keyframes bounce {
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(8px);
+    }
+}
+
+
 /* Responsive tweaks */
 @media (max-width: 600px) {
     .faq-page {
