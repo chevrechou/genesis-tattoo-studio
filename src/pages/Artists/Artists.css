@@ -1,8 +1,8 @@
-/* ────────────────────────
-   Layout - Page and Grid
-────────────────────────── */
+/* ─────────────────────────────
+   Page Layout and Grid
+───────────────────────────── */
 .artists-page {
-    padding: 4rem 2rem;
+    padding: 2rem 2rem 4rem;
     background: #f4f4f2;
     min-height: 100vh;
 }
@@ -23,6 +23,9 @@
     margin: 0 auto;
 }
 
+/* ─────────────────────────────
+   Artist Cards
+───────────────────────────── */
 .artist-card {
     display: flex;
     background: #fff;
@@ -51,22 +54,21 @@
     justify-content: center;
 }
 
-.artist-info h3,
-.artist-info p {
+.artist-info h3 {
     margin: 0;
     color: #000;
     font-weight: bold;
 }
 
 .artist-info p {
-    margin-top: 0.25rem;
+    margin: 0.25rem 0 0;
+    color: #000;
     font-style: italic;
-    font-weight: normal;
 }
 
-/* ────────────────────────
-   Modal Overlay + Content
-────────────────────────── */
+/* ─────────────────────────────
+   Modal Overlay and Content
+───────────────────────────── */
 .artist-modal {
     position: fixed;
     top: 0;
@@ -81,8 +83,7 @@
     padding: 2rem;
 }
 
-.artist-modal-content,
-.artist-modal-content.large {
+.artist-modal-content {
     background: #fff;
     padding: 2rem;
     border-radius: 12px;
@@ -97,53 +98,74 @@
     text-align: center;
 }
 
-.artist-modal-content h2,
-.artist-modal-content h4,
-.artist-modal-content p {
-    color: #000;
-}
-
-/* ────────────────────────
-   Modal: Artist Details
-────────────────────────── */
-.artist-details {
+/* ─────────────────────────────
+   Artist Details in Modal
+───────────────────────────── */
+.artist-details-row {
     display: flex;
     align-items: center;
-    gap: 2rem;
-    margin-bottom: 2rem;
+    justify-content: space-between;
+    gap: 1.5rem;
     width: 100%;
+    margin-bottom: 1.5rem;
     text-align: left;
-    flex-wrap: wrap;
 }
 
 .modal-avatar {
-    width: 140px;
-    height: 140px;
+    width: 120px;
+    height: 120px;
     border-radius: 12px;
     object-fit: cover;
+    flex-shrink: 0;
 }
 
-.artist-text h2 {
-    font-size: 1.8rem;
+.artist-text-block {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex: 1;
+}
+
+.artist-name-style {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+}
+
+.artist-name-style h2 {
     margin: 0;
+    font-size: 1.8rem;
     color: #000;
 }
 
-.artist-text h4 {
-    margin: 0.5rem 0;
+.artist-name-style h4 {
+    margin: 0;
     font-weight: 600;
-    color: #000;
+    color: #444;
 }
 
-.artist-text p {
+.artist-bio {
+    font-size: 1rem;
+    line-height: 1.5;
+    color: #222;
     margin-top: 0.5rem;
-    line-height: 1.6;
-    color: #000;
 }
 
-/* ────────────────────────
-   Gallery with Overlay Effect
-────────────────────────── */
+.artist-ig-link {
+    font-size: 3.5rem;
+    color: #e1306c;
+    margin-right: 1rem;
+    transition: color 0.2s ease;
+    text-align: right;
+}
+
+.artist-ig-link:hover {
+    color: rgb(32, 32, 247);
+}
+
+/* ─────────────────────────────
+   Image Gallery with Overlay
+───────────────────────────── */
 .artist-gallery {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -157,9 +179,8 @@
     aspect-ratio: 1 / 1;
     object-fit: cover;
     border-radius: 8px;
-    position: relative;
-    transition: transform 0.3s ease;
     background-color: #eee;
+    transition: transform 0.3s ease, filter 0.3s ease;
 }
 
 .gallery-img:hover {
@@ -167,9 +188,9 @@
     filter: brightness(60%);
 }
 
-/* ────────────────────────
+/* ─────────────────────────────
    Close Button
-────────────────────────── */
+───────────────────────────── */
 .close-btn {
     margin-top: 1.5rem;
     background: #111;
@@ -185,71 +206,81 @@
     background: crimson;
 }
 
-/* ────────────────────────
-   Responsive Design
-────────────────────────── */
+/* ─────────────────────────────
+   Responsive Styles
+───────────────────────────── */
 @media (max-width: 768px) {
     .artist-gallery {
         grid-template-columns: repeat(2, 1fr);
     }
 
-    .artist-modal-content.large {
+    .artist-modal-content {
         padding: 1rem;
     }
 }
 
 @media (max-width: 640px) {
+    .artist-modal {
+        padding: 0rem;
+    }
+
     .artist-details {
         flex-direction: column;
         align-items: center;
         text-align: center;
+        gap: 1rem;
+        margin-bottom: 1rem;
     }
 
-    .artist-text {
-        text-align: center;
-    }
-}
-
-@media (max-width: 600px) {
-    .artist-card {
+    .artist-details-row {
         flex-direction: column;
         align-items: center;
         text-align: center;
     }
 
-    .artist-avatar {
-        border-radius: 12px 12px 0 0;
-        width: 100%;
-        height: auto;
+    .modal-avatar {
+        width: 100px;
+        height: 100px;
+        border-radius: 50%;
+        object-fit: cover;
+        margin-bottom: 0.5rem;
     }
 
-    .artist-info {
-        padding: 1rem;
+    .artist-text-block {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .artist-ig-link {
+        margin-top: 0.5rem;
+        margin-left: 0;
+        font-size: 1.8rem;
+    }
+
+    .artist-bio {
+        font-size: 0.95rem;
+        max-width: 90%;
+        margin: 0 auto;
+    }
+
+    .artist-gallery {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 0.5rem;
     }
 }
 
-/* ────────────────────────
+
+
+/* ─────────────────────────────
    Animations
-────────────────────────── */
-@keyframes fadeIn {
-    from {
-        transform: scale(0.9);
-        opacity: 0;
-    }
-
-    to {
-        transform: scale(1);
-        opacity: 1;
-    }
-}
-
+───────────────────────────── */
 @keyframes modalSlideIn {
-    0% {
+    from {
         transform: translateY(20px) scale(0.95);
         opacity: 0;
     }
 
-    100% {
+    to {
         transform: translateY(0) scale(1);
         opacity: 1;
     }

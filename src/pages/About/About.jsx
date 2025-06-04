@@ -6,10 +6,12 @@ export default function About() {
     const scrollToAbout = () => {
         const aboutSection = document.getElementById('artists');
         if (aboutSection) {
-            aboutSection.scrollIntoView({ behavior: 'smooth' });
+            const yOffset = -80; // adjust to match navbar height
+            const y = aboutSection.getBoundingClientRect().top + window.pageYOffset + yOffset;
+
+            window.scrollTo({ top: y, behavior: 'smooth' });
         }
-        // navigate('/about');
-    }
+    };
 
     return (
         <>
@@ -73,7 +75,7 @@ export default function About() {
             </div>
 
             <div className="chevron-center-wrapper" onClick={scrollToAbout}>
-                <a  className="chevron-hover-link">
+                <a className="chevron-hover-link">
                     <span className="chevron-label">Meet Our Artists</span>
                     <span className="chevron-svg"></span>
                 </a>

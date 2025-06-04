@@ -67,7 +67,7 @@
 /* Reveal label only when hovering the chevron */
 .chevron-hover-link:hover .chevron-label {
   opacity: 1;
-  transform: translateY(0);
+  transform: translateY(-2px);
   pointer-events: auto;
 }
 

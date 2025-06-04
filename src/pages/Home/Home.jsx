@@ -1,20 +1,21 @@
 import React, { useEffect, useRef } from 'react';
 import './Home.css';
-import { useNavigate } from 'react-router-dom';
 import About from '../About/About';
 import Artists from '../Artists/Artists';
+import FAQ from '../FAQ/FAQ';
 
 export default function Home() {
   const columnsRef = useRef(null);
-  const navigate = useNavigate();
 
   const scrollToAbout = () => {
     const aboutSection = document.getElementById('about');
     if (aboutSection) {
-      aboutSection.scrollIntoView({ behavior: 'smooth' });
+      const yOffset = -80; // adjust to match navbar height
+      const y = aboutSection.getBoundingClientRect().top + window.pageYOffset + yOffset;
+
+      window.scrollTo({ top: y, behavior: 'smooth' });
     }
-    // navigate('/about');
-  }
+  };
 
   useEffect(() => {
     const handleScroll = () => {
@@ -60,7 +61,8 @@ export default function Home() {
         </div>
       </div>
       <About />
-      <Artists/>
+      <Artists />
+      <FAQ/>
     </>
   );
 }
